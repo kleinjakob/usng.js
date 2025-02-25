@@ -1386,6 +1386,8 @@ extend(Converter.prototype, {
   //    in MGRS notation.  but the numbers are the same.
   LLtoMGRS: function(lat, lon, precision) {
     if (this.isInUPSSpace(lat)) {
+      var ups_obj = {...this.LLtoUPS(lat, lon), northpole: lat > 0 ? true : false };
+      console.log(ups_obj);
       throw new Error("Not yet Implemented");
     } else {
       var mgrs_str;
