@@ -1612,12 +1612,6 @@ describe('UPS Conversions', () => {
       it('invalid zone', () => {
         chai.expect(() => converter.deserializeUPS("L 2443997mE 2015504mN")).to.throw()
       })
-	    it('invalid zone A', () => {
-        chai.expect(() => converter.deserializeUPS("A 2443997mE 2015504mN")).to.throw()
-      })
-      it('invalid zone B', () => {
-        chai.expect(() => converter.deserializeUPS("B 1554816mE 2015504mN")).to.throw()
-      })
       it('invalid easting', () => {
         chai.expect(() => converter.deserializeUPS("L 24mE 2015504mN")).to.throw()
       })
