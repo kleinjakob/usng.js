@@ -1,6 +1,7 @@
 // Copyright (c) 2009 Larry Moore, larmoor@gmail.com
 //               2014 Mike Adair, Richard Greenwood, Didier Richard, Stephen Irons, Olivier Terral and Calvin Metcalf (proj4js)
 //               2014 Codice Foundation
+//               2025 Jakob Klein
 // Released under the MIT License; see
 // http://www.opensource.org/licenses/mit-license.php
 // or http://en.wikipedia.org/wiki/MIT_License
@@ -352,7 +353,7 @@ extend(Converter.prototype, {
     const upsZoneLetter = !isUTM
       && utmups.northPole
       ? (utmups.easting < 2000000 ? 'Y' : 'Z')
-      : (utmups.northing < 2000000 ? 'A' : 'B')
+      : (utmups.easting < 2000000 ? 'A' : 'B')
     const hemisphere = utmups.northPole ? 'N' : 'S'
     const calculatedZone = isUTM ? utmups.zoneNumber + hemisphere : upsZoneLetter
     return `${calculatedZone} ${Math.round(utmups.easting)}mE ${Math.round(utmups.northing)}mN`
@@ -569,7 +570,7 @@ extend(Converter.prototype, {
     const upsObject = this.LLtoUPS(lat, lon)
     const upsZoneLetter = upsObject.northPole
       ? (upsObject.easting < 2000000 ? 'Y' : 'Z')
-      : (upsObject.northing < 2000000 ? 'A' : 'B')
+      : (upsObject.easting < 2000000 ? 'A' : 'B')
 
     return `${upsZoneLetter} ${Math.round(upsObject.easting)}mE ${Math.round(upsObject.northing)}mN`
   },
