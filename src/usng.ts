@@ -1385,21 +1385,17 @@ extend(Converter.prototype, {
   //    with no spaces.  space delimiters are optional but allowed in USNG, but are not allowed
   //    in MGRS notation.  but the numbers are the same.
   LLtoMGRS: function(lat, lon, precision) {
-    var mgrs_str;
-    var usng_str = this.LLtoUSNG(lat, lon, precision);
-
-    // remove space delimiters to conform to mgrs spec
-    var regexp = / /g;
-    mgrs_str = usng_str.replace(regexp, "");
-
-    return mgrs_str;
-  },
-
-  LLtoMGRSUPS: function(lat, lon, precision) {
     if (this.isInUPSSpace(lat)) {
-      return this.LLtoUPSString(lat, lon)
+      throw new Error("Not yet Implemented");
     } else {
-      return this.LLtoMGRS(lat, lon, precision)
+      var mgrs_str;
+      var usng_str = this.LLtoUSNG(lat, lon, precision);
+  
+      // remove space delimiters to conform to mgrs spec
+      var regexp = / /g;
+      mgrs_str = usng_str.replace(regexp, "");
+  
+      return mgrs_str;
     }
   },
 
