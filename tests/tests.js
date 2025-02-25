@@ -1418,7 +1418,7 @@ describe('UPS Conversions', () => {
       chai.expect(lat).to.be.closeTo(-85, range)
       chai.expect(lon).to.be.closeTo(15, range)
     })
-    describe('test four corners in UPS square', ()=> {
+    describe('test four corners in UPS square north', ()=> {
       it('convert Z 2400000mE 2400000mN', ()=>{
         const { lat, lon } = converter.UPStoLL({
           northing: 2400000,
@@ -1454,6 +1454,44 @@ describe('UPS Conversions', () => {
         });
         chai.expect(lat).to.be.closeTo(84.91, range)
         chai.expect(lon).to.be.closeTo(45, range)
+      })
+    })
+    describe('test four corners in UPS square south', ()=> {
+      it('convert B 2400000mE 2400000mN', ()=>{
+        const { lat, lon } = converter.UPStoLL({
+          northing: 2400000,
+          easting: 2400000,
+          northPole: false
+        });
+        chai.expect(lat).to.be.closeTo(-84.91, range)
+        chai.expect(lon).to.be.closeTo(45, range)
+      })
+      it('convert A 1400000mE 1400000mN', ()=>{
+        const { lat, lon } = converter.UPStoLL({
+          northing: 1400000,
+          easting: 1400000,
+          northPole: false
+        });
+        chai.expect(lat).to.be.closeTo(-82.37, range)
+        chai.expect(lon).to.be.closeTo(-135, range)
+      })
+      it('convert A 1600000mE 2400000mN', ()=>{
+        const { lat, lon } = converter.UPStoLL({
+          northing: 2400000,
+          easting: 1600000,
+          northPole: false
+        });
+        chai.expect(lat).to.be.closeTo(-84.91, range)
+        chai.expect(lon).to.be.closeTo(-45, range)
+      })
+      it('convert B 2400000mE 1600000mN', ()=>{
+        const { lat, lon } = converter.UPStoLL({
+          northing: 1600000,
+          easting: 2400000,
+          northPole: false
+        });
+        chai.expect(lat).to.be.closeTo(-84.91, range)
+        chai.expect(lon).to.be.closeTo(135, range)
       })
     })
   })
