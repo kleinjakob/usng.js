@@ -41,6 +41,7 @@
   },
   "main": "dist/usng.js",
   "types": "dist/usng.d.ts",
+  "type": "module",
   "directories": {
     "test": "tests"
   },
