@@ -45,11 +45,11 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "npm run build && mocha tests/tests.js",
+    "build": "npx tsc",
+    "test": "npm run build && npx mocha tests/tests.js",
     "prepare": "npm run build",
     "publish:npm": "yarn build && yarn publish --access public && git push --tags",
-    "format": "tsfmt -r"
+    "format": "npx tsfmt -r"
   },
   "author": "codice",
   "license": "MIT"
